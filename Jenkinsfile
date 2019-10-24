@@ -29,10 +29,9 @@ pipeline {
 
                     withAWS(region:'us-west-2',credentials:'ArtifactServiceAcct') {
 
-                        def identity=awsIdentity();//Log AWS credentials
 
                     // Upload files from working directory 'dist' in your project workspace
-                    s3Upload(bucket:'foobar.artifacts', path:'modules/python/sampleproject/', workingDir:'dist', includePathPattern:'**/*.whl');
+                    s3Upload(bucket:'foobar.artifacts', path:'modules/python/sampleproject/', workingDir:'dist', includePathPattern:'**/*.whl')
                 }
                 }
             }
