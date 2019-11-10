@@ -13,7 +13,7 @@ pipeline {
   stage('Set ~/databricks-connect file') {
    steps {
     sh '''
-        cat <<'EOF' > ~/.databricks-connect.json
+        cat <<'EOF' > ~/.databricks-connect
         {
             "host": "$SHARD",
             "cluster_id": "1110-025932-gases1",

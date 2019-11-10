@@ -151,6 +151,7 @@ RUN set -ex; \
 	rm -f get-pip.py
 
 RUN pip install pytest
-RUN pip install databricks-connect==5.5.3    
+RUN pip install databricks-connect==5.5.3
+RUN apk add bash
 
 CMD ["python3"]
