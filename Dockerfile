@@ -150,7 +150,6 @@ RUN set -ex; \
 		\) -exec rm -rf '{}' +; \
 	rm -f get-pip.py
 
-RUN pip install pytest
 RUN pip install databricks-connect==5.5.3
 RUN apk add bash
 

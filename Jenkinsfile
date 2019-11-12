@@ -22,13 +22,12 @@ pipeline {
             "token": "$TOKEN"
         }
         EOF
-
-        cat ~/.databricks-connect
     '''
    }
   }
-  stage('Running Tests') {
+  stage('Install PyTest and Run Tests') {
    steps {
+    sh 'pip install pytest'   
     sh 'python -m pytest tests/'
    }
   }
