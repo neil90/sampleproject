@@ -1,7 +1,7 @@
 pipeline {
  agent {
   docker {
-   image 'np90/dbconnect:5.5.3'
+   image 'np90/dbconnect:version-5.5.3'
   }
  }
   environment {
