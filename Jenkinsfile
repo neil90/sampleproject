@@ -2,7 +2,7 @@ pipeline {
  agent {
   docker {
    image 'np90/dbconnect:version-5.5.3'
-   args '--entrypoint='''
+   args '--entrypoint=\'\''
   }
  }
   environment {
