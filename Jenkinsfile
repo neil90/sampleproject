@@ -7,7 +7,7 @@ pipeline {
  agent {
   docker {
    image 'np90/dbconnect:version-5.5.3'
-   args '-e SHARD=$SHARD -e TOKEN=$TOKEN -e CLUSTERID=1110-025932-gases1 bin/bash'
+   args '-e SHARD=$SHARD -e TOKEN=$TOKEN -e CLUSTERID=1110-025932-gases1'
   }
  }
 
