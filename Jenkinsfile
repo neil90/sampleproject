@@ -1,30 +1,17 @@
 pipeline {
- agent {
-  docker {
-   image 'np90/dbconnect:version-5.5.3'
-  }
- }
   environment {
    SHARD = credentials('PROD_DATABRICKS_SHARD')
    TOKEN = credentials('PROD_DATABRICKS_TOKEN')
 
-}
- stages {
-  stage('Set ~/databricks-connect file') {
-   steps {
-    sh '''
-        cat << EOF > ~/.databricks-connect
-        {
-            "host": "$SHARD",
-            "cluster_id": "1110-025932-gases1",
-            "port": "15001",
-            "ord_id": "0",
-            "token": "$TOKEN"
-        }
-        EOF
-    '''
-   }
+}    
+ agent {
+  docker {
+   image 'np90/dbconnect:version-5.5.3'
+   args '-e SHARD=$SHARD -e TOKEN=$TOKEN -e CLUSTERID=1110-025932-gases1 bin/bash'
   }
+ }
+
+ stages {
   stage('Install PyTest and Run Tests') {
    steps {
     sh 'pip install pytest'   
