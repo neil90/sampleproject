@@ -15,7 +15,7 @@ pipeline {
   stage('Install PyTest and Run Tests') {
    steps {
     sh 'pip install pytest'   
-    sh 'python -m pytest tests/'
+    sh 'cat ~/.databricks-connect #python -m pytest tests/'
    }
   }
   stage('Build Python Wheel') {
